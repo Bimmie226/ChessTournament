@@ -12,9 +12,7 @@ public class Player {
     private int eloCoefficients;
     private String notes;
 
-    public Player() {
-
-    }
+    public Player() {}
 
     public int getId() {
         return id;

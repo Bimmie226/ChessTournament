@@ -5,9 +5,7 @@ public class Table {
     private int id;
     private String name;
 
-    public Table() {
-
-    }
+    public Table() {}
 
     public int getId() {
         return id;

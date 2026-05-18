@@ -6,9 +6,7 @@ public class Round {
     private int roundNO;
     private Tournament tournament;
 
-    public Round() {
-
-    }
+    public Round() {}
 
     public int getId() {
         return id;

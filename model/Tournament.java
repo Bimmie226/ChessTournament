@@ -12,9 +12,7 @@ public class Tournament {
     private String location;
     private String description;
 
-    public Tournament() {
-
-    }
+    public Tournament() {}
 
     public int getId() {
         return id;

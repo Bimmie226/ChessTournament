@@ -13,9 +13,7 @@ public class Match {
 
     private LocalDateTime dateTime;
 
-    public Match() {
-
-    }
+    public Match() {}
 
     public int getId() {
         return id;

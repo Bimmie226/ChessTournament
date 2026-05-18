@@ -10,9 +10,7 @@ public class MatchResult {
     private Match match;
     private Staff staff;
 
-    public MatchResult() {
-
-    }
+    public MatchResult() {}
 
     public int getId() {
         return id;
