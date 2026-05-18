@@ -85,7 +85,7 @@ public class StaffHomeFrm extends JFrame implements ActionListener{
 
   public void actionPerformed(ActionEvent e) { 
     if (e.getSource() instanceof JButton && ((JButton)e.getSource()).equals(this.btnUpdateMatchResults)) {
-      (new StaffHomeFrm(this.staff)).setVisible(true);
+      (new UpdateResultsFrm(this.staff)).setVisible(true);
       this.dispose();
     } else {
       JOptionPane.showMessageDialog(this, "This function is under construction!");
