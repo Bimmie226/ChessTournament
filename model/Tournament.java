@@ -1,18 +1,27 @@
 package model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Tournament {
-
     private int id;
     private String code;
     private String name;
-    private LocalDate year;
-    private LocalDate timeHeld;
+    private Date year;
+    private Date timeHeld;
     private String location;
     private String description;
 
     public Tournament() {}
+
+    public Tournament(int id, String code, String name, Date year, Date timeHeld, String location, String description) {
+        this.id = id;
+        this.code = code;
+        this.name = name;
+        this.year = year;
+        this.timeHeld = timeHeld; 
+        this.location = location; 
+        this.description = description; 
+    }
 
     public int getId() {
         return id;
@@ -38,19 +47,19 @@ public class Tournament {
         this.name = name;
     }
 
-    public LocalDate getYear() {
+    public Date getYear() {
         return year;
     }
 
-    public void setYear(LocalDate year) {
+    public void setYear(Date year) {
         this.year = year;
     }
 
-    public LocalDate getTimeHeld() {
+    public Date getTimeHeld() {
         return timeHeld;
     }
 
-    public void setTimeHeld(LocalDate timeHeld) {
+    public void setTimeHeld(Date timeHeld) {
         this.timeHeld = timeHeld;
     }
 

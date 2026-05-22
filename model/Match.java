@@ -1,19 +1,25 @@
 package model;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Match {
-
     private int id;
+    private int tableNO;
+    private Date dateTime;
     private String location;
-
     private Round round;
-    private Table table;
-    private Staff staff;
-
-    private LocalDateTime dateTime;
+    private ArrayList<Player> players; 
 
     public Match() {}
+
+    public Match(int id, int tableNO, Date dateTime, String location, Round round) {
+        this.id = id;
+        this.tableNO = tableNO;
+        this.dateTime = dateTime; 
+        this.location = location; 
+        this.round = round;
+    }
 
     public int getId() {
         return id;
@@ -21,6 +27,22 @@ public class Match {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getTableNO() {
+        return tableNO;
+    }
+
+    public void setTableNO(int tableNO) {
+        this.tableNO = tableNO;
+    }
+
+    public Date getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
     }
 
     public String getLocation() {
@@ -39,27 +61,11 @@ public class Match {
         this.round = round;
     }
 
-    public Table getTable() {
-        return table;
+    public ArrayList<Player> getPlayers() {
+        return this.players;
     }
 
-    public void setTable(Table table) {
-        this.table = table;
-    }
-
-    public Staff getStaff() {
-        return staff;
-    }
-
-    public void setStaff(Staff staff) {
-        this.staff = staff;
-    }
-
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
     }
 }

@@ -2,5 +2,5 @@
 
 ```java
 javac -cp ".;lib/*" dao/*.java model/*.java view/staff/*.java       
-java -cp ".;lib/*" view.staff.StaffHomeFrm 
+java -cp ".;lib/*" view.staff.LoginFrm 
 ```

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 import model.Staff;
 
-public class StaffHomeFrm extends JFrame implements ActionListener{
+public class StaffHomeFrm extends JFrame implements ActionListener {
   private JButton btnUpdateMatchResults;
   private Staff staff;
 
@@ -37,7 +37,7 @@ public class StaffHomeFrm extends JFrame implements ActionListener{
     headerPanel.add(Box.createRigidArea(new Dimension(450, 0)));
     
     // Label user 
-    JLabel userLabel = new JLabel("Loged in as: " + staff.getFullName()); 
+    JLabel userLabel = new JLabel("Loged in as: " + staff.getFirstName()); 
     // Căn phải Label User theo trục X để hiển thị bên phải 
     userLabel.setAlignmentX(1.0F);
 

@@ -1,12 +1,17 @@
 package model;
 
 public class Round {
-
     private int id;
     private int roundNO;
     private Tournament tournament;
 
     public Round() {}
+
+    public Round(int id, int roundNO, Tournament tournament) {
+        this.id = id;
+        this.roundNO = roundNO; 
+        this.tournament = tournament;
+    }
 
     public int getId() {
         return id;

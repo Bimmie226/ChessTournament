@@ -1,18 +1,27 @@
 package model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Player {
-
     private int id;
     private String code;
     private String name;
-    private LocalDate yearOfBirth;
     private String nationality;
-    private int eloCoefficients;
+    private Date yearOfBirth;
+    private int eloCoefficient;
     private String notes;
 
     public Player() {}
+
+    public Player(int id, String code, String name, String nationality, Date yearOfBirth, int eloCoefficient, String notes) {
+        this.id = id; 
+        this.code = code;
+        this.name = name; 
+        this.nationality = nationality; 
+        this.yearOfBirth = yearOfBirth; 
+        this.eloCoefficient = eloCoefficient; 
+        this.notes = notes;
+    }
 
     public int getId() {
         return id;
@@ -21,7 +30,7 @@ public class Player {
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public String getCode() {
         return code;
     }
@@ -38,14 +47,6 @@ public class Player {
         this.name = name;
     }
 
-    public LocalDate getYearOfBirth() {
-        return yearOfBirth;
-    }
-
-    public void setYearOfBirth(LocalDate yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
-    }
-
     public String getNationality() {
         return nationality;
     }
@@ -54,12 +55,20 @@ public class Player {
         this.nationality = nationality;
     }
 
-    public int getEloCoefficients() {
-        return eloCoefficients;
+    public Date getYearOfBirth() {
+        return yearOfBirth;
     }
 
-    public void setEloCoefficients(int eloCoefficients) {
-        this.eloCoefficients = eloCoefficients;
+    public void setYearOfBirth(Date yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+
+    public int getEloCoefficient() {
+        return eloCoefficient;
+    }
+
+    public void setEloCoefficient(int eloCoefficient) {
+        this.eloCoefficient = eloCoefficient;
     }
 
     public String getNotes() {

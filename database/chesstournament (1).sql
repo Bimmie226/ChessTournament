@@ -31,7 +31,7 @@ CREATE TABLE `match` (
   PRIMARY KEY (`id`),
   KEY `fk_2` (`roundID`),
   CONSTRAINT `fk_2` FOREIGN KEY (`roundID`) REFERENCES `round` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `match` (
 
 LOCK TABLES `match` WRITE;
 /*!40000 ALTER TABLE `match` DISABLE KEYS */;
+INSERT INTO `match` VALUES (1,1,'2026-05-10','Ha Noi',1),(2,2,'2026-05-10','Ha Noi',1),(3,1,'2026-05-11','Ha Noi',2),(4,2,'2026-05-11','Ha Noi',2),(5,1,'2026-05-12','Ha Noi',3),(6,2,'2026-05-12','Ha Noi',3);
 /*!40000 ALTER TABLE `match` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +65,7 @@ CREATE TABLE `matchresult` (
   CONSTRAINT `fk_3` FOREIGN KEY (`playerID`) REFERENCES `player` (`id`),
   CONSTRAINT `fk_4` FOREIGN KEY (`matchID`) REFERENCES `match` (`id`),
   CONSTRAINT `fk_5` FOREIGN KEY (`staffID`) REFERENCES `staff` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,6 +74,7 @@ CREATE TABLE `matchresult` (
 
 LOCK TABLES `matchresult` WRITE;
 /*!40000 ALTER TABLE `matchresult` DISABLE KEYS */;
+INSERT INTO `matchresult` VALUES (9,'Win',6,1,1,1),(10,'Loss',-6,2,1,1),(11,'Draw',-3,3,2,1),(12,'Draw',3,4,2,1),(13,'Loss',-7,1,3,1),(14,'Win',7,4,3,1),(15,'Win',5,2,4,1),(16,'Loss',-5,3,4,1);
 /*!40000 ALTER TABLE `matchresult` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,15 +87,15 @@ DROP TABLE IF EXISTS `player`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `player` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `code` varchar(50) DEFAULT NULL,
   `name` varchar(50) NOT NULL,
   `nationality` varchar(50) NOT NULL,
-  `yearOfBirth` date NOT NULL,
+  `yearOfBirth` year DEFAULT NULL,
   `eloCoefficient` int NOT NULL,
   `notes` varchar(255) DEFAULT NULL,
-  `code` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,6 +104,7 @@ CREATE TABLE `player` (
 
 LOCK TABLES `player` WRITE;
 /*!40000 ALTER TABLE `player` DISABLE KEYS */;
+INSERT INTO `player` VALUES (1,NULL,'Magnus Carlsen','Norway',1990,2836,NULL),(2,NULL,'Hikaru Nakamura','USA',1987,2796,NULL),(3,NULL,'Ding Liren','China',1992,2759,NULL),(4,NULL,'Fabiano Caruana','USA',1992,2808,NULL);
 /*!40000 ALTER TABLE `player` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +123,7 @@ CREATE TABLE `round` (
   UNIQUE KEY `roundNO` (`roundNO`),
   KEY `fk_1` (`tournamentID`),
   CONSTRAINT `fk_1` FOREIGN KEY (`tournamentID`) REFERENCES `tournament` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,6 +132,7 @@ CREATE TABLE `round` (
 
 LOCK TABLES `round` WRITE;
 /*!40000 ALTER TABLE `round` DISABLE KEYS */;
+INSERT INTO `round` VALUES (1,1,1),(2,2,1),(3,3,1);
 /*!40000 ALTER TABLE `round` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,7 +151,7 @@ CREATE TABLE `staff` (
   `lastName` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,6 +160,7 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
+INSERT INTO `staff` VALUES (1,'admin','chess@2026','luong','vu');
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,13 +175,13 @@ CREATE TABLE `tournament` (
   `id` int NOT NULL AUTO_INCREMENT,
   `code` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `year` date NOT NULL,
+  `year` year DEFAULT NULL,
   `timeHeld` date NOT NULL,
   `location` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,6 +190,7 @@ CREATE TABLE `tournament` (
 
 LOCK TABLES `tournament` WRITE;
 /*!40000 ALTER TABLE `tournament` DISABLE KEYS */;
+INSERT INTO `tournament` VALUES (1,'TCH2026','PTIT Chess Championship',2026,'2026-05-10','Ha Noi','Annual tournament');
 /*!40000 ALTER TABLE `tournament` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -197,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-20 16:20:14
+-- Dump completed on 2026-05-20 19:45:49
